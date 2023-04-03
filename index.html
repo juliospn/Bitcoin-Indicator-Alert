@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Minha Extensão</title>
+    <link href="./styles.css" rel="stylesheet" />
+
+  </head>
+  <body>
+    <h1>Funding Rate</h1>
+    <p id="fundingRate"></p>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+      // Use a função fetch do JavaScript para obter o funding rate da Binance API
+      fetch("https://api.binance.com/fapi/v1/fundingRate?symbol=BTCUSDT")
+        .then(response => response.json())
+        .then(data => {
+          // Exiba o funding rate na página HTML
+          $("#fundingRate").text(data.fundingRate);
+        });
+    </script>
+  </body>
+</html>

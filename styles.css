@@ -1,0 +1,50 @@
+body {
+    background-color: #212121; /* Define a cor de fundo */
+    color: #fff; /* Define a cor do texto */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Define a fonte */
+  }
+  
+  h1 {
+    font-size: 36px; /* Define o tamanho da fonte */
+    margin: 0 0 20px 0; /* Define as margens */
+    text-transform: uppercase; /* Transforma o texto em maiúsculo */
+  }
+  
+  p {
+    font-size: 24px; /* Define o tamanho da fonte */
+    margin: 0 0 10px 0; /* Define as margens */
+  }
+  
+  /* Define o estilo do link */
+  a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease-in-out;
+  }
+  
+  /* Define o estilo do link quando o mouse está sobre ele */
+  a:hover {
+    color: #00FFFF;
+  }
+  
+  /* Define o estilo do botão */
+  button {
+    background-color: #00FFFF;
+    border: none;
+    border-radius: 4px;
+    color: #212121;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+    padding: 10px 20px;
+    text-transform: uppercase;
+    transition: background-color 0.3s ease-in-out;
+  }
+  
+  /* Define o estilo do botão quando o mouse está sobre ele */
+  button:hover {
+    background-color: #212121;
+    color: #fff;
+  }
+  
