@@ -8,6 +8,7 @@ body {
     font-size: 36px; /* Define o tamanho da fonte */
     margin: 0 0 20px 0; /* Define as margens */
     text-transform: uppercase; /* Transforma o texto em maiúsculo */
+    text-align: center;
   }
   
   p {

@@ -1,37 +1,42 @@
 {
-    "manifest_version": 2,
-    "name": "Bitcoin ",
-    "version": "1.0.0",
-    "description": "Esta é a minha extensão para o navegador",
-    "icons": {
+  "manifest_version": 2,
+  "name": "Bitcoin Indicator Alert Extension",
+  "version": "1.0.0",
+  "description": "This is a browser extension that allows users to monitor Binance's funding rate indicator and receive alerts for overbought and oversold conditions.",
+  "icons": {
+    "16": "icon-16.png",
+    "48": "icon-48.png",
+    "128": "icon-128.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage",
+    "https://fstream.binance.com/"
+  ],
+  "content_scripts": [
+    {
+      "matches": [
+        "<all_urls>"
+      ],
+      "css": [
+        "style.css"
+      ]
+    }
+  ],
+  "background": {
+    "scripts": [
+      "background.js"
+    ],
+    "persistent": false
+  },
+  "browser_action": {
+    "default_icon": {
       "16": "icon-16.png",
+      "32": "icon-32.png",
       "48": "icon-48.png",
       "128": "icon-128.png"
     },
-    "permissions": [
-      "activeTab",
-      "storage"
-    ],
-    "content_scripts": [
-      {
-        "matches": ["https://www.example.com/*"],
-        "js": ["content.js"],
-        "css": ["style.css"]
-      }
-    ],
-    "background": {
-      "scripts": ["background.js"],
-      "persistent": false
-    },
-    "browser_action": {
-      "default_icon": {
-        "16": "icon-16.png",
-        "32": "icon-32.png",
-        "48": "icon-48.png",
-        "128": "icon-128.png"
-      },
-      "default_title": "Minha Extensão",
-      "default_popup": "popup.html"
-    }
+    "default_title": "Bitcoin Indicator Alert Extension",
+    "default_popup": "popup.html"
   }
-  
+}

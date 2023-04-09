@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Bitcoin Indicator Alert Extension</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      font-size: 14px;
+      color: #ffffff;
+      background-color: rgb(41, 41, 41);
+      width: 200px;
+    }
+    h1 {
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+    .price {
+      font-weight: bold;
+    }
+    .funding {
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1 class="price">Bitcoin Price:</h1>
+  <div id="price">Loading...</div>
+  <div class="funding">
+    <h1>Funding Rate:</h1>
+    <div id="funding-rate">Loading...</div>
+  </div>
+  <script src="popup.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/websocket/1.0.31/websocket.min.js"></script>
+</body>
+</html>
