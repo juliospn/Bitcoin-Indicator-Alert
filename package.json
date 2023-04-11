@@ -4,6 +4,7 @@
     "binance-api-node": "^0.12.4",
     "chrome-remote-interface": "^0.32.1",
     "express": "^4.18.2",
+    "firebase": "^9.19.1",
     "log4js": "^6.9.1",
     "websocket": "^1.0.34"
   }

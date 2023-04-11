@@ -11,7 +11,9 @@
   "permissions": [
     "activeTab",
     "storage",
-    "https://fstream.binance.com/"
+    "https://fstream.binance.com/",
+    "notifications",
+    "https://www.googleapis.com/"
   ],
   "content_scripts": [
     {
@@ -27,6 +29,7 @@
     "scripts": [
       "background.js"
     ],
+    "service_worker": "firebase-messaging-sw.js",
     "persistent": false
   },
   "browser_action": {
@@ -36,7 +39,7 @@
       "48": "icon-48.png",
       "128": "icon-128.png"
     },
-    "default_title": "Bitcoin Indicator Alert Extension",
+    "default_title": "Bitcoin Price: ${{price}} | Funding Rate: {{fundingRate}}%",
     "default_popup": "popup.html"
   }
 }
