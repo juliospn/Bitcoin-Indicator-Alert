@@ -1,0 +1,177 @@
+body {
+    font-size: 14px;
+    color: #ffffff;
+    background-color: rgb(41, 41, 41);
+}
+
+.container {
+    padding: 8px;
+    display: inline-flex;
+    width: 100%;
+    justify-content: space-between;
+    width: 350px;
+    height: 275px;
+}
+
+h1 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 500;
+    margin-top: 5px;
+}
+
+h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+    font-weight: 500;
+}
+
+.orange {
+    color: orange;
+    width: 55px;
+}
+
+.price {
+    font-weight: 500;
+    padding-top: 20px;
+}
+
+.funding {
+    margin-top: 20px;
+    font-weight: 500;
+
+}
+
+.negative {
+    color: rgb(83, 165, 83);
+}
+
+.positive {
+    color: rgb(224, 113, 142);
+}
+
+.nupl {
+    margin-top: 20px;
+}
+
+.set-alarm {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.set-alarm {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.avg-price {
+    display: flex;
+    width: 150px;
+    padding-top: 20px;
+    padding-right: 3px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.buy-history {
+    display: flex;
+    width: 330px;
+    padding-top: 32px;
+    padding-right: 3px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0 auto;
+}
+
+table {
+    margin-bottom: 35px;
+    margin-top: 15px;
+    margin-left: 25px;
+    width: 100%;
+}
+
+input { 
+    margin-bottom: 5px;
+}
+
+tr {
+    font-size: small;
+}
+
+th {
+    padding-right: 12px;
+    padding-bottom: 3px;
+}
+
+td {
+    text-align: center;
+    padding-right: 10px;
+}
+
+form {
+    width: 200px;
+    height: 120px;
+    display: grid;
+}
+
+form label {
+    margin-bottom: 4px;
+}
+
+form button {
+    font-weight: 600;
+    background-color: dimgray;
+    color: white;
+    height: 25px;
+    margin-top: 10px;
+}
+
+td button {
+    color: white;
+    background-color: dimgray;
+    transform: scale(0.8);
+}
+
+div button {
+    transition: all 0.5s;
+    background-color: rgb(26, 26, 26);
+    color: white;
+    border: 1px solid rgba(255, 255, 255, 0.685);
+    height: 25px;
+    margin-bottom: 5px;
+}
+
+div button:hover {
+    background-color: rgb(43, 43, 43);
+    
+}
+
+.buttons {
+    display: flex;
+}
+
+footer {
+    display: flex;
+    margin-top: 2px;
+    font-size: 12.5px;
+    background-color: rgb(255, 255, 255);
+    padding: 8px;
+    color: black;
+    justify-content: space-evenly;
+    bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+
+footer a {
+    color: #2647ff;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.5;
+}
+
+footer a:hover {
+    color: #9646ff;
+}

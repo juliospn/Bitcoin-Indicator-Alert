@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Bitcoin Indicator Alert Extension</title>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+
+    <div class="buy-history">
+        <h2>Buy History</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Average Price</th>
+                </tr>
+            </thead>
+            <tbody id="buy-history-table">
+            </tbody>
+        </table>
+
+        <form id="buy-form">
+            <label for="price">Price:</label>
+            <input type="number" id="price-buy" step="0.01" required>
+
+            <label for="quantity">Quantity:</label>
+            <input type="number" id="quantity" step="0.000001" required>
+
+            <button type="submit">Add to Buy History</button>
+        </form>
+    </div>
+    <footer>
+        <p>© 2023 #Time2Buy</p>
+        <a href="https://juliospn.github.io/CounterFlow-DCA/index-en.html" target="_blank">CounterFlow DCA Strategy</a>
+    </footer>
+    
+    <script src="./js/preco-medio.js"></script>
+</body>
+
+</html>

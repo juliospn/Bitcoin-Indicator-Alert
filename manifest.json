@@ -1,45 +1,21 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Bitcoin Indicator Alert Extension",
   "version": "1.0.0",
-  "description": "This is a browser extension that allows users to monitor Binance's funding rate indicator and receive alerts for overbought and oversold conditions.",
+  "description": "This is a browser extension that allows users to monitor some Bitcoin indicators and receive alerts.",
   "icons": {
-    "16": "icon-16.png",
-    "48": "icon-48.png",
-    "128": "icon-128.png"
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
   },
   "permissions": [
-    "activeTab",
+    "alarms",
     "storage",
-    "https://fstream.binance.com/",
-    "notifications",
-    "https://www.googleapis.com/"
+    "notifications"
   ],
-  "content_scripts": [
-    {
-      "matches": [
-        "<all_urls>"
-      ],
-      "css": [
-        "style.css"
-      ]
-    }
-  ],
-  "background": {
-    "scripts": [
-      "background.js"
-    ],
-    "service_worker": "firebase-messaging-sw.js",
-    "persistent": false
-  },
-  "browser_action": {
-    "default_icon": {
-      "16": "icon-16.png",
-      "32": "icon-32.png",
-      "48": "icon-48.png",
-      "128": "icon-128.png"
-    },
-    "default_title": "Bitcoin Price: ${{price}} | Funding Rate: {{fundingRate}}%",
+  "action": {
+    "default_icon": "icon128.png",
+    "default_title": "BTC Indicators | Funding Rate & NUPL",
     "default_popup": "popup.html"
   }
 }

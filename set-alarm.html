@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Add Custom Alert</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 14px;
+            margin: 0;
+            padding: 0;
+            background-color: #000;
+        }
+
+        .container {
+            background-color: #222222;
+            border: 1px solid #5c5c5cc2;
+            box-shadow: 0px 0px 10px #242424;
+            padding: 20px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 400px;
+            color: white;
+        }
+
+        .close {
+            float: right;
+            font-size: 18px;
+            font-weight: bold;
+            line-height: 1;
+            color: #ececec;
+            text-decoration: none;
+            transition: all 0.5;
+        }
+
+        .close:hover,
+        .close:focus {
+            color: #000;
+            text-decoration: none;
+            cursor: pointer;
+        }
+
+        .channels {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 15px;
+            margin-top: 10px;
+        }
+
+        h2 {
+            margin-top: 0;
+        }
+
+        form {
+            margin-top: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type=text],
+        input[type=email],
+        select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+            width: 100%;
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        button {
+            background-color: #000000;
+            color: #fff;
+            padding: 10px 20px;
+            border: 1px #ffffff6e solid;
+            border-radius: 4px;
+            cursor: pointer;
+            float: right;
+            margin-left: 10px;
+            transition: all 0.5s;
+        }
+
+        button:hover {
+            background-color: #884e03;
+        }
+
+        button.cancel {
+            background-color: #000000;
+            border: 1px #ffffff6e solid;
+            transition: all 0.5s;
+        }
+
+        button.cancel:hover {
+            background-color: #1f1f1f;
+        }
+        
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="#" class="close">X</a>
+        <h2>Add Custom Alert</h2>
+        <form>
+            <label for="asset">Asset:</label>
+            <select id="asset">
+                <option value="bitcoin">Bitcoin</option>
+            </select>
+            <label for="metric">Metric:</label>
+            <select id="metric">
+                <option value="funding_rate">Funding Rate</option>
+                <option value="nupl">NUPL</option>
+            </select>
+            <label for="exchange">Exchange:</label>
+            <select id="exchange">
+                <option value="binance">Binance</option>
+                <option value="all-exchanges">All Exchanges</option>
+            </select>
+            <h3>Alarm settings</h3>
+            <label for="condition">Condition:</label>
+            <select id='condition'>
+                <option value='above'>Above</option>
+                <option value='below'>Below</option>
+            </select>
+            <label for='threshold'>Threshold Value:</label>
+            <input type='text' id='threshold'>
+            <label for='type'>Type:</label>
+            <select id='type'>
+                <option value='recurring'>Recurring</option>
+                <option value='only_once'>Only Once</option>
+            </select>
+            <label for='cool_down'>Cool Down:</label>
+            <select id='cool_down'>
+                <option value='5min'>5min</option>
+                <option value='15min'>15min</option>
+                <option value='1hour'>1hour</option>
+                <option value='1day'>1day</option>
+            </select>
+            <div class="channels">
+                <label for='channels'>Channels:</label>
+                <input type='checkbox' id='telegram' name='channels' value='telegram'>
+                <label for='telegram'>Telegram</label>
+                <input type='checkbox' id='email' name='channels' value='email'>
+                <label for='email'>Email</label>
+                <input type='checkbox' id='browser' name='channels' value='browser'>
+                <label for='browser'>Browser Notification</label>
+            </div>
+            <label for='note'>Add Note (Optional):</label>
+            <textarea id='note'></textarea>
+            
+            <button type='button' onclick='addAlert()'>Add</button>
+            <button class='cancel' type='button' onclick='closeWindow()'>Cancel</button>
+        </form>
+    </div>
+
+    <script src="./js/set-alarm.js"></script>
+</body>
+
+</html>

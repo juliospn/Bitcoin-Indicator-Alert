@@ -4,62 +4,55 @@
 <head>
   <meta charset="UTF-8">
   <title>Bitcoin Indicator Alert Extension</title>
-  <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    integrity="sha512-SqpTsfDbpZfX8ZqUEKKN74DSG0grRKPwvJ8WQ+Omqku0Ldov/EU6vXU6ZxYY0aAem2K5oJvG8bW0p6LkU6EJ5Q=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="./css/reset.css">
+  <link rel="stylesheet" href="./css/style.css">
 </head>
 
 <body>
   <div class="container">
     <div>
-      <h1> Hello, <span class="orange">Satoshi!</span></h1> 
+      <h1> Hello, <span class="orange">Satoshi!</span></h1>
       <h2 class="price">Bitcoin Price:</h2>
       <div id="price">Loading...</div>
       <div class="funding">
-        <h2>Funding Rate:</h2>
+        <h2>Binance Funding Rate:</h2>
         <div id="funding-rate">Loading...</div>
       </div>
-    </div>
-    <div class="switch-container">
-      <span class="switch-label">Alarm</span>
-      <label class="switch">
-        <input type="checkbox" id="alarm-checkbox">
-        <span class="slider round"></span>
-      </label>
-      <div class="alarm-levels">
-        <label>
-          <input type="checkbox" name="alarmLevels[]" value="1" checked>
-          #Time2Buy level 1 (-0,004)
-        </label><br>
-        <label>
-          <input type="checkbox" name="alarmLevels[]" value="2" checked>
-          #Time2Buy level 2 (-0,006)
-        </label><br>
-        <label>
-          <input type="checkbox" name="alarmLevels[]" value="3" checked>
-          #Time2Buy level 3 (-0,01)
-        </label><br>
-        <label>
-          <input type="checkbox" name="alarmLevels[]" value="4" checked>
-          #Time2Buy level 4 (-0,02)
-        </label><br>
-        <label>
-          <input type="checkbox" name="alarmLevels[]" value="5" checked>
-          #Time2Buy level 5 (-0,05)
-        </label><br>
-        <label>
-          <input type="checkbox" name="alarmLevels[]" value="6" checked>
-          #Time2Buy level 6 (-0,1)
-        </label><br>
+      <div class="nupl">
+        <h2>NUPL:</h2>
+        <div id="nupl-value">Loading...</div>
       </div>
     </div>
-    
+    <div>
+      <div class="buttons">
+        <div class="set-alarm">
+          <button id="set-alarm-btn">Set Alarm <i class="fas fa-bell"></i></button>
+        </div>      
+        <div class="set-alarm">
+          <button id="buy-history-btn">Buy History</button>
+        </div>
+      </div>
+      <div>
+        <div class="avg-price">
+          <h2>Your Average Price</h2>
+          <p> $ <span id="last-avg-price">-</span></p>
+        </div>
+      </div>
+    </div>
   </div>
   <footer>
-    <p>© 2023 #Time2Buy</p><a href="https://juliospn.github.io/CounterFlow-DCA/">CounterFlow DCA Strategy</a>
+    <p>© 2023 #Time2Buy</p>
+    <a href="https://juliospn.github.io/CounterFlow-DCA/index-en.html" target="_blank">CounterFlow DCA Strategy</a>
   </footer>
-  <script src="popup.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/websocket/1.0.31/websocket.min.js"></script>
-  <script src="alarm.js"></script>
+
+  <script src="./js/nupl.js"></script>
+  <script src="./js/indicadores.js"></script>
+  <script src="./js/alarm.js"></script>
+  <script src="./js/buy-history.js"></script>
+  <script src="./js/preco-medio.js"></script>
 </body>
 
 </html>
