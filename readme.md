@@ -2,13 +2,13 @@
 
 #### Status: Developing ⚠️
 
-#### This is a browser extension that allows users to monitor Binance's funding rate indicator and receive alerts for overbought and oversold conditions. Additionally, the extension is capable of alerting users to ultra-high volumes with small price fluctuations and allows for setting price hit alarms.
+#### This is a browser extension that allows users to monitor some important Bitcoin indicators and receive alerts for overbought and oversold conditions.
 
 ## Features
-+ Monitor Binance's funding rate indicator
++ Monitor Binance's funding rate indicator and NUPL
 + Receive alerts for overbought and oversold conditions
-+ Set price hit alarms
-+ Receive alerts for ultra-high volumes with small price fluctuations
++ Monitor your average price on Bitcoin purchases
++ Learn about the long-term DCA Counterflow strategy for Bitcoin 
 
 ## Installation
 To install the extension, follow these steps:
