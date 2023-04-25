@@ -2,6 +2,7 @@ body {
     font-size: 14px;
     color: #ffffff;
     background-color: rgb(41, 41, 41);
+    font-family: system-ui;
 }
 
 .container {
@@ -39,7 +40,6 @@ h2 {
 .funding {
     margin-top: 20px;
     font-weight: 500;
-
 }
 
 .negative {
