@@ -18,7 +18,7 @@ To install the extension, follow these steps:
 4. Click on the "Load unpacked" button and select the extension folder
 
 ## How to Use
-Once the extension is installed, you can click on the icon in the top right corner of your browser to open the popup. From there, you can monitor the funding rate indicator and set price hit alarms.
+Once the extension is installed, you can click on the icon in the upper right corner of the browser to open the popup. From there, you can monitor the funding rate indicator and NUPL, then log your Bitcoin purchases to monitor the DCA Counterflow strategy's average price and progress. it will also be possible to set alarms for when indicators reach extreme values, signaling overbought and oversold regions.
 
 ## Contributing
 Contributions to this project are welcome! If you find a bug or have a feature request, please open an issue. If you would like to contribute code, please fork the repository and create a pull request.

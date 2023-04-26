@@ -9,7 +9,6 @@ function renderBuyHistory() {
         console.log('buy.averagePrice:', buy.averagePrice);
         console.log('buy.price:', buy.price);
         const row = document.createElement('tr');
-
         const priceCell = document.createElement('td');
         priceCell.textContent = buy.price != null ? buy.price.toFixed(0) : '-';
 
@@ -22,11 +21,13 @@ function renderBuyHistory() {
         const deleteCell = document.createElement('td');
         const deleteButton = document.createElement('button');
         deleteButton.textContent = 'X';
-        deleteButton.addEventListener('click', () => {
-            buyHistory.splice(index, 1);
-            renderBuyHistory();
-            saveBuyHistory();
-        });
+        if (deleteButton) {
+            deleteButton.addEventListener('click', () => {
+                buyHistory.splice(index, 1);
+                renderBuyHistory();
+                saveBuyHistory();
+            });
+        }
         deleteCell.appendChild(deleteButton);
 
         row.appendChild(priceCell);
@@ -78,7 +79,7 @@ buyForm.addEventListener('submit', (event) => {
 function loadBuyHistory() {
     buyHistory = JSON.parse(localStorage.getItem('buyHistory')) || [];
     renderBuyHistory();
-    updateLastAveragePrice(); // Adicionado
+    updateLastAveragePrice(); // Added
 }
 
 function getLastAveragePrice() {
@@ -95,15 +96,3 @@ function updateLastAveragePrice() {
 
 loadBuyHistory();
 console.log(lastAveragePrice);
-
-const deleteButton = document.createElement('button');
-deleteButton.textContent = 'X';
-
-if (deleteButton) {
-  deleteButton.addEventListener('click', () => {
-    buyHistory.splice(index, 1);
-    renderBuyHistory();
-    saveBuyHistory();
-  });
-}
-
