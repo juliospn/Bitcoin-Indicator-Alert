@@ -69,65 +69,6 @@ h2 {
     justify-content: center;
 }
 
-.buy-history {
-    display: flex;
-    width: 330px;
-    padding-top: 32px;
-    padding-right: 3px;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-}
-
-table {
-    margin-bottom: 35px;
-    margin-top: 15px;
-    margin-left: 25px;
-    width: 100%;
-}
-
-input { 
-    margin-bottom: 5px;
-}
-
-tr {
-    font-size: small;
-}
-
-th {
-    padding-right: 12px;
-    padding-bottom: 3px;
-}
-
-td {
-    text-align: center;
-    padding-right: 10px;
-}
-
-form {
-    width: 200px;
-    height: 120px;
-    display: grid;
-}
-
-form label {
-    margin-bottom: 4px;
-}
-
-form button {
-    font-weight: 600;
-    background-color: dimgray;
-    color: white;
-    height: 25px;
-    margin-top: 10px;
-}
-
-td button {
-    color: white;
-    background-color: dimgray;
-    transform: scale(0.8);
-}
-
 div button {
     transition: all 0.5s;
     background-color: rgb(26, 26, 26);
