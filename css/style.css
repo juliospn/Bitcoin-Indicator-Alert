@@ -112,3 +112,16 @@ footer a {
 footer a:hover {
     color: #9646ff;
 }
+
+.btcnews {
+    color: #000000;
+    text-align: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: all 0.5;
+    display: inline;
+}
+
+.btcnews:hover {
+    color: #d10000;
+}
