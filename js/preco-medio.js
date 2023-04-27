@@ -3,20 +3,23 @@ const buyHistoryTable = document.getElementById('buy-history-table');
 let buyHistory = JSON.parse(localStorage.getItem('buyHistory')) || [];
 let lastAveragePrice = 0;
 
+
 function renderBuyHistory() {
     buyHistoryTable.innerHTML = '';
     buyHistory.forEach((buy, index) => {
-        console.log('buy.averagePrice:', buy.averagePrice);
-        console.log('buy.price:', buy.price);
         const row = document.createElement('tr');
+
         const priceCell = document.createElement('td');
-        priceCell.textContent = buy.price != null ? buy.price.toFixed(0) : '-';
+        priceCell.textContent = buy.price != null ? buy.price.toLocaleString() : '-';
+        row.appendChild(priceCell);
 
         const quantityCell = document.createElement('td');
-        quantityCell.textContent = buy.quantity.toFixed(6);
+        quantityCell.textContent = buy.quantity.toLocaleString(undefined, { minimumFractionDigits: 6, maximumFractionDigits: 6 });
+        row.appendChild(quantityCell);
 
-        const avgPriceCell = document.createElement('td');
-        avgPriceCell.textContent = buy.averagePrice != null ? buy.averagePrice.toFixed(0) : '-';
+        const lastAvgPriceCell = document.createElement('td');
+        lastAvgPriceCell.classList.add('last-avg-price');
+        row.appendChild(lastAvgPriceCell);
 
         const deleteCell = document.createElement('td');
         const deleteButton = document.createElement('button');
@@ -26,18 +29,54 @@ function renderBuyHistory() {
                 buyHistory.splice(index, 1);
                 renderBuyHistory();
                 saveBuyHistory();
+
+                // Recalcula o preço médio e atualiza o valor exibido na página
+                let sum = 0;
+                let totalQuantity = 0;
+                for (let i = 0; i < buyHistory.length; i++) {
+                    sum += buyHistory[i].price * buyHistory[i].quantity;
+                    totalQuantity += buyHistory[i].quantity;
+                }
+                if (totalQuantity > 0) {
+                    lastAveragePrice = sum / totalQuantity;
+                } else {
+                    lastAveragePrice = 0;
+                }
+                updateLastAveragePrice(lastAveragePrice);
+
+                // Atualiza o valor no localStorage
+                localStorage.setItem('last-avg-price', lastAveragePrice.toFixed(1));
             });
         }
         deleteCell.appendChild(deleteButton);
-
-        row.appendChild(priceCell);
-        row.appendChild(quantityCell);
-        row.appendChild(avgPriceCell);
         row.appendChild(deleteCell);
 
         buyHistoryTable.appendChild(row);
     });
+
+    // Recalcula o last average price
+    let sum = 0;
+    let totalQuantity = 0;
+    for (let i = 0; i < buyHistory.length; i++) {
+        sum += buyHistory[i].price * buyHistory[i].quantity;
+        totalQuantity += buyHistory[i].quantity;
+    }
+    if (totalQuantity > 0) {
+        lastAveragePrice = sum / totalQuantity;
+    } else {
+        lastAveragePrice = 0;
+    }
+    // Atualiza o valor no localStorage
+    localStorage.setItem('last-avg-price', lastAveragePrice.toFixed(1));
+
+    // Seleciona o último elemento com a classe "last-avg-price" e define o seu ID
+    const lastAvgPriceCells = document.querySelectorAll('.last-avg-price');
+    if (lastAvgPriceCells.length) {
+        const lastAvgPriceCell = lastAvgPriceCells[lastAvgPriceCells.length - 1];
+        lastAvgPriceCell.id = 'last-avg-price';
+    }
 }
+
 
 function calculateAveragePrice() {
     const lastBuy = buyHistory[buyHistory.length - 1];
@@ -61,7 +100,8 @@ function addBuyToHistory(price, quantity) {
     newBuy.averagePrice = isNaN(averagePrice) ? 0 : averagePrice;
     renderBuyHistory();
     saveBuyHistory();
-    updateLastAveragePrice();
+    updateLastAveragePrice(newBuy.averagePrice); // passa o valor do último preço médio como argumento
+    newBuy.lastAveragePrice = newBuy.averagePrice;
 }
 
 function saveBuyHistory() {
@@ -79,7 +119,9 @@ buyForm.addEventListener('submit', (event) => {
 function loadBuyHistory() {
     buyHistory = JSON.parse(localStorage.getItem('buyHistory')) || [];
     renderBuyHistory();
-    updateLastAveragePrice(); // Added
+    const lastAvgPrice = localStorage.getItem('last-avg-price');
+    const lastAvgPriceSpan = document.getElementById('last_avg_price');
+    lastAvgPriceSpan.textContent = lastAvgPrice ? lastAvgPrice : '-';
 }
 
 function getLastAveragePrice() {
@@ -89,10 +131,11 @@ function getLastAveragePrice() {
     return buyHistory[buyHistory.length - 1].averagePrice;
 }
 
-function updateLastAveragePrice() {
-    const lastAvgPriceElement = document.querySelector('#last-avg-price');
-    lastAvgPriceElement.textContent = getLastAveragePrice().toFixed(2);
+function updateLastAveragePrice(lastAveragePrice) {
+    const lastAvgPriceSpan = document.getElementById('last-avg-price');
+    lastAvgPriceSpan.textContent = lastAveragePrice ? lastAveragePrice.toFixed(1) : '-';
+    localStorage.setItem('last-avg-price', lastAveragePrice.toFixed(1));
+    lastAveragePrice = localStorage.getItem('last-avg-price');
 }
 
 loadBuyHistory();
-console.log(lastAveragePrice);
