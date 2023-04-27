@@ -8,11 +8,11 @@ body {
     padding-right: 3px;
     flex-wrap: wrap;
     justify-content: center;
-    margin: 42px 20px 20px;
+    margin: 42px 20px 50px;
     padding: 15px 10px 25px 0px;
     background-color: #222222;
     border: 1px solid #5c5c5cc2;
-    box-shadow: 0px 0px 10px #242424;
+    box-shadow: 0px 0px 10px #303030;
 }
 
 table {
@@ -28,7 +28,7 @@ h2 {
     font-weight: 650;
 }
 
-input { 
+input {
     margin-bottom: 5px;
 }
 
@@ -77,4 +77,22 @@ div button {
     border: 1px solid rgba(255, 255, 255, 0.685);
     height: 25px;
     margin-bottom: 5px;
+}
+
+/* CSS para personalizar a aparência da barra de rolagem */
+::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1a1a1a;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #6363633a;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
