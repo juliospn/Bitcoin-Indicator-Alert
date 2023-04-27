@@ -57,11 +57,7 @@ h2 {
 .set-alarm {
     display: flex;
     justify-content: flex-end;
-}
-
-.set-alarm {
-    display: flex;
-    justify-content: flex-end;
+    margin-right: 5px;
 }
 
 .avg-price {
