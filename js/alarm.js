@@ -4,6 +4,6 @@ document.getElementById("set-alarm-btn").addEventListener("click", function () {
     url: "set-alarm.html",
     type: "popup",
     width: 500,
-    height: 900
+    height: 800
   });
 });
