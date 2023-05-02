@@ -4,6 +4,6 @@ document.getElementById("instructions-btn").addEventListener("click", function (
     url: "instructions.html",
     type: "popup",
     width: 500,
-    height: 900
+    height: 750
   });
 });
