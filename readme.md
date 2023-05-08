@@ -2,6 +2,10 @@
 
 #### Status: Developing ⚠️
 
+<div align="center">
+	<img width=600px src="./img/extension.gif">
+</div><br>
+
 #### This is a browser extension that allows users to monitor some important Bitcoin indicators and receive alerts for overbought and oversold conditions.
 
 ## Features
@@ -25,3 +29,6 @@ Contributions to this project are welcome! If you find a bug or have a feature r
 
 ## License
 This project is licensed under the MIT License - see the LICENSE.md file for details.
+
+## Credits
+This application was created by [Julio Nascimento](https://www.linkedin.com/in/julio-spnascimento/).
