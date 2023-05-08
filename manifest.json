@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Bitcoin Indicator Alert Extension",
+  "name": "Bitcoin Indicator - DCA Strategy",
   "version": "1.0.0",
   "description": "This is a browser extension that allows users to monitor some Bitcoin indicators and receive alerts.",
   "icons": {
@@ -11,7 +11,8 @@
   "permissions": [
     "alarms",
     "storage",
-    "notifications"
+    "notifications",
+    "http://localhost:3000/"
   ],
   "action": {
     "default_icon": "icon128.png",

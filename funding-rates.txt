@@ -1,0 +1,437 @@
+//deribit ok
+
+const https = require('https');
+
+function getFundingRate() {
+  const url = 'https://www.deribit.com/api/v2/public/get_funding_chart_data?instrument_name=BTC-PERPETUAL&length=8h';
+
+  https.get(url, (res) => {
+    let data = '';
+
+    res.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    res.on('end', () => {
+      const jsonData = JSON.parse(data);
+      if (jsonData.result) {
+        const fundingRate = jsonData.result.interest_8h * 100;
+        console.log(`Funding Rate Deribit (8h): ${fundingRate.toFixed(6)}%`);
+      } else {
+        console.error('Error: No funding rate data found');
+      }
+    });
+
+  }).on('error', (err) => {
+    console.error(`Error: ${err.message}`);
+  });
+}
+
+setInterval(getFundingRate, 2000);
+
+==================================================================================
+//bitget  ok
+
+const https = require('https');
+
+function getFundingRate() {
+  const url = 'https://api.bitget.com/api/mix/v1/market/current-fundRate?symbol=BTCUSDT_UMCBL';
+
+  https.get(url, (res) => {
+    let data = '';
+
+    res.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    res.on('end', () => {
+      const jsonData = JSON.parse(data);
+      if (jsonData.code === '00000' && jsonData.data.fundingRate) {
+        const fundingRate = jsonData.data.fundingRate;
+        console.log(`Funding Rate BitGet: ${fundingRate}%`);
+      } else {
+        console.error('Error: No funding rate data found');
+      }
+    });
+
+  }).on('error', (err) => {
+    console.error(`Error: ${err.message}`);
+  });
+}
+
+setInterval(getFundingRate, 2000);
+
+
+==================================================================================
+//bybit  ok
+
+const https = require('https');
+
+function getFundingRate() {
+  const url = 'https://api.bybit.com/v2/public/tickers?symbol=BTCUSDT';
+
+  https.get(url, (res) => {
+    let data = '';
+
+    res.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    res.on('end', () => {
+      const jsonData = JSON.parse(data);
+      if (jsonData.result) {
+        const fundingRate = jsonData.result[0].funding_rate * 100; // Multiplica por 100 para obter a porcentagem
+        console.log(`Funding Rate (Bybit): ${fundingRate.toFixed(4)}%`); // Formata a saída como uma porcentagem com 4 casas decimais
+      } else {
+        console.error('Error: No funding rate data found');
+      }
+    });
+
+  }).on('error', (err) => {
+    console.error(`Error: ${err.message}`);
+  });
+}
+
+setInterval(getFundingRate, 2000);
+
+==================================================================================
+//bitmex  ok
+
+const https = require('https');
+
+function getFundingRate() {
+  const url = 'https://www.bitmex.com/api/v1/instrument?symbol=XBTUSD&count=1&reverse=true';
+
+  https.get(url, (res) => {
+    let data = '';
+
+    res.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    res.on('end', () => {
+      const jsonData = JSON.parse(data);
+      if (jsonData[0]) {
+        const fundingRate = jsonData[0].fundingRate * 100; // Multiplica por 100 para obter a taxa em porcentagem
+        console.log(`Funding Rate BitMEX: ${fundingRate.toFixed(2)}%`);
+      } else {
+        console.error('Error: No funding rate data found');
+      }
+    });
+
+  }).on('error', (err) => {
+    console.error(`Error: ${err.message}`);
+  });
+}
+
+setInterval(getFundingRate, 2000);
+
+==================================================================================
+//OKX  ok
+
+const https = require('https');
+
+function getFundingRate() {
+  const url = 'https://www.okx.com/api/v5/public/funding-rate?instId=BTC-USDT-SWAP';
+
+  https.get(url, (res) => {
+    let data = '';
+
+    res.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    res.on('end', () => {
+      const jsonData = JSON.parse(data);
+      if (jsonData.code === '0' && jsonData.data.length > 0) {
+        const fundingRate = jsonData.data[0].fundingRate;
+        console.log(`Funding Rate OKX: ${(parseFloat(fundingRate) * 100).toFixed(4)}%`);
+      } else {
+        console.error('Error: No funding rate data found');
+      }
+    });
+
+  }).on('error', (err) => {
+    console.error(`Error: ${err.message}`);
+  });
+}
+
+setInterval(getFundingRate, 2000);
+
+==================================================================================
+//Huobi Global  ok
+const https = require('https');
+
+function getFundingRate() {
+  const url = 'https://api.hbdm.com/linear-swap-api/v1/swap_funding_rate?contract_code=BTC-USDT';
+
+  https.get(url, (res) => {
+    let data = '';
+
+    res.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    res.on('end', () => {
+      const jsonData = JSON.parse(data);
+      if (jsonData.status === 'ok' && jsonData.data.funding_rate) {
+        const fundingRate = jsonData.data.funding_rate;
+        console.log(`Funding Rate Huobi: ${(parseFloat(fundingRate) * 100).toFixed(4)}%`);
+      } else {
+        console.error('Error: No funding rate data found');
+      }
+    });
+
+  }).on('error', (err) => {
+    console.error(`Error: ${err.message}`);
+  });
+}
+
+setInterval(getFundingRate, 2000);
+
+==================================================================================
+//BTCEX ok
+
+const https = require('https');
+
+function getFundingRate() {
+  const url = 'https://www.btcex.com/api/v1/public/coin_gecko_contracts';
+
+  https.get(url, (res) => {
+    let data = '';
+
+    res.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    res.on('end', () => {
+      const jsonData = JSON.parse(data);
+      if (jsonData.result.length > 0) {
+        const contract = jsonData.result.find((c) => c.ticker_id === 'BTC-USDT-PERPETUAL');
+        if (contract) {
+          const fundingRate = parseFloat(contract.funding_rate);
+          console.log(`Funding Rate BTCEX: ${fundingRate}%`);
+        } else {
+          console.error('Error: No contract found');
+        }
+      } else {
+        console.error('Error: No contracts found');
+      }
+    });
+
+  }).on('error', (err) => {
+    console.error(`Error: ${err.message}`);
+  });
+}
+
+setInterval(getFundingRate, 2000);
+
+===============================================================================
+const https = require('https');
+
+function getFundingRate(url, exchangeName) {
+  https.get(url, (res) => {
+    let data = '';
+
+    res.on('data', (chunk) => {
+      data += chunk;
+    });
+
+    res.on('end', () => {
+      const jsonData = JSON.parse(data);
+
+      if (exchangeName === 'Deribit') {
+        if (jsonData.result) {
+          const fundingRate = jsonData.result.interest_8h * 100;
+          console.log(`Funding Rate ${exchangeName} (8h): ${fundingRate.toFixed(4)}%`);
+        } else {
+          console.error(`Error: No funding rate data found for ${exchangeName}`);
+        }
+      }
+
+      if (exchangeName === 'BitGet') {
+        if (jsonData.code === '00000' && jsonData.data.fundingRate) {
+          const fundingRate = jsonData.data.fundingRate * 100;
+          console.log(`Funding Rate ${exchangeName}: ${fundingRate.toFixed(4)}%`);
+        } else {
+          console.error(`Error: No funding rate data found for ${exchangeName}`);
+        }
+      }
+
+      if (exchangeName === 'Bybit') {
+        if (jsonData.result) {
+          const fundingRate = jsonData.result[0].funding_rate * 100;
+          console.log(`Funding Rate ${exchangeName}: ${fundingRate.toFixed(4)}%`);
+        } else {
+          console.error(`Error: No funding rate data found for ${exchangeName}`);
+        }
+      }
+
+      if (exchangeName === 'BitMEX') {
+        if (jsonData[0]) {
+          const fundingRate = jsonData[0].fundingRate * 100;
+          console.log(`Funding Rate ${exchangeName}: ${fundingRate.toFixed(4)}%`);
+        } else {
+          console.error(`Error: No funding rate data found for ${exchangeName}`);
+        }
+      }
+
+      if (exchangeName === 'OKX') {
+        if (jsonData.code === '0' && jsonData.data.length > 0) {
+          const fundingRate = jsonData.data[0].fundingRate;
+          console.log(`Funding Rate ${exchangeName}: ${(parseFloat(fundingRate) * 100).toFixed(4)}%`);
+        } else {
+          console.error(`Error: No funding rate data found for ${exchangeName}`);
+        }
+      }
+
+      if (exchangeName === 'Huobi') {
+        if (jsonData.status === 'ok' && jsonData.data.funding_rate) {
+            const fundingRate = jsonData.data.funding_rate;
+          console.log(`Funding Rate ${exchangeName}: ${(parseFloat(fundingRate) * 100).toFixed(4)}%`);
+        } else {
+          console.error(`Error: No funding rate data found for ${exchangeName}`);
+        }
+      }
+
+      if (exchangeName === 'BTCEX') {
+        if (jsonData.result.length > 0) {
+          const contract = jsonData.result.find((c) => c.ticker_id === 'BTC-USDT-PERPETUAL');
+          if (contract) {
+            const fundingRate = parseFloat(contract.funding_rate)* 100;
+            console.log(`Funding Rate ${exchangeName}: ${fundingRate.toFixed(4)}%`);
+          } else {
+            console.error(`Error: No funding rate data found for ${exchangeName}`);
+          }
+        }
+      }
+
+      if (exchangeName === 'Binance USDT') {
+        const fundingRate = parseFloat(jsonData.lastFundingRate);
+        if (!isNaN(fundingRate)) {
+          console.log(`Funding Rate ${exchangeName}: ${(fundingRate * 100).toFixed(4)}%`);
+        } else {
+          console.error(`Error: No funding rate data found for ${exchangeName}`);
+        }
+      }
+
+      if (exchangeName === 'Binance USD') {
+        const jsonData = JSON.parse(data)[0];
+        const fundingRate = parseFloat(jsonData.lastFundingRate);
+        if (!isNaN(fundingRate)) {
+          console.log(`Funding Rate ${exchangeName}: ${(fundingRate * 100).toFixed(4)}%`);
+        } else {
+          console.error(`Error: No funding rate data found for ${exchangeName}`);
+        }
+      }
+    });
+
+    
+
+  }).on('error', (err) => {
+    console.error(`Error: ${err.message}`);
+  });
+}
+
+// Url's
+const deribitUrl = 'https://www.deribit.com/api/v2/public/get_funding_chart_data?instrument_name=BTC-PERPETUAL&length=8h';
+const bitGetUrl = 'https://api.bitget.com/api/mix/v1/market/current-fundRate?symbol=BTCUSDT_UMCBL';
+const bybitUrl = 'https://api.bybit.com/v2/public/tickers?symbol=BTCUSDT';
+const bitmexUrl = 'https://www.bitmex.com/api/v1/funding?symbol=XBTUSD&count=1&reverse=true';
+const okexUrl = 'https://www.okx.com/api/v5/public/funding-rate?instId=BTC-USDT-SWAP';
+const huobiUrl = 'https://api.hbdm.com/linear-swap-api/v1/swap_funding_rate?contract_code=BTC-USDT';
+const btcexUrl = 'https://www.btcex.com/api/v1/public/coin_gecko_contracts';
+const binanceUrl = 'https://www.binance.com/fapi/v1/premiumIndex?symbol=BTCUSDT';
+const binance2Url = 'https://www.binance.com/dapi/v1/premiumIndex?symbol=BTCUSD_PERP';
+
+getFundingRate(deribitUrl, 'Deribit');
+getFundingRate(bitGetUrl, 'BitGet');
+getFundingRate(bybitUrl, 'Bybit');
+getFundingRate(bitmexUrl, 'BitMEX');
+getFundingRate(okexUrl, 'OKX');
+getFundingRate(huobiUrl, 'Huobi');
+getFundingRate(btcexUrl, 'BTCEX');
+getFundingRate(binanceUrl, 'Binance USDT');
+getFundingRate(binance2Url, 'Binance USD');
+
+=================================================================================
+const https = require('https');
+
+const exchangesF = [
+    { name: 'Deribit', url: 'https://www.deribit.com/api/v2/public/get_funding_chart_data?instrument_name=BTC-PERPETUAL&length=8h' },
+    { name: 'Bitget', url: 'https://api.bitget.com/api/mix/v1/market/current-fundRate?symbol=BTCUSDT_UMCBL' },
+    { name: 'Bybit', url: 'https://api.bybit.com/v2/public/tickers?symbol=BTCUSDT' },
+    { name: 'Bitmex', url: 'https://www.bitmex.com/api/v1/instrument?symbol=XBTUSD' },
+    { name: 'OKX', url: 'https://www.okx.com/api/v5/public/funding-rate?instId=BTC-USDT-SWAP' },
+    { name: 'Huobi', url: 'https://api.hbdm.com/linear-swap-api/v1/swap_funding_rate?contract_code=BTC-USDT' },
+    { name: 'BTCEX', url: 'https://www.btcex.com/api/v1/public/coin_gecko_contracts' },
+    { name: 'BinanceUSDT', url: 'https://www.binance.com/fapi/v1/premiumIndex?symbol=BTCUSDT' },
+    { name: 'BinanceUSD', url: 'https://www.binance.com/dapi/v1/premiumIndex?symbol=BTCUSD_PERP' }
+];
+
+async function getFundingRate() {
+    const fundingRateObj = {};
+    const promises = exchangesF.map((exchange) => {
+        return new Promise((resolve, reject) => {
+            https.get(exchange.url, (res) => {
+                let data = '';
+
+                res.on('data', (chunk) => {
+                    data += chunk;
+                });
+
+                res.on('end', () => {
+                    let fundingRate;
+
+                    switch (exchange.name) {
+                        case 'Deribit':
+                            fundingRate = parseFloat(JSON.parse(data).result.interest_8h * 100).toFixed(4);
+                            break;
+                        case 'Bitget':
+                            fundingRate = parseFloat(JSON.parse(data).data.fundingRate * 100).toFixed(4);
+                            break;
+                        case 'Bybit':
+                            fundingRate = parseFloat(JSON.parse(data).result[0].funding_rate * 100).toFixed(4);
+                            break;
+                        case 'Bitmex':
+                            fundingRate = parseFloat(JSON.parse(data)[0].fundingRate * 100).toFixed(4);
+                            break;
+                        case 'OKX':
+                            fundingRate = parseFloat(JSON.parse(data).data[0].fundingRate * 100).toFixed(4);
+                            break;
+                        case 'Huobi':
+                            fundingRate = parseFloat(JSON.parse(data).data.funding_rate * 100).toFixed(4);
+                            break;
+                        case 'BTCEX':
+                            const btcUSDTPERP = JSON.parse(data).result.find((contract) => contract.ticker_id === 'BTC-USDT-PERPETUAL');
+                            fundingRate = parseFloat(btcUSDTPERP.funding_rate * 100).toFixed(4);
+                            break;
+                        case 'BinanceUSDT':
+                            fundingRate = parseFloat(JSON.parse(data).lastFundingRate * 100).toFixed(4);
+                            break;
+                        case 'BinanceUSD':
+                            fundingRate = parseFloat(JSON.parse(data)[0].lastFundingRate * 100).toFixed(4);
+                            break;
+                    }
+                    fundingRateObj[exchange.name] = fundingRate;
+                    resolve();
+                    console.log(`${exchange.name}: ${fundingRate}%`);
+                });
+
+                res.on('error', (err) => {
+                    console.error(`Error: ${err.message}`);
+                    reject(err);
+                });
+            });
+        });
+    });
+
+    await Promise.all(promises);
+    return fundingRateObj;
+}
+
+getFundingRate();
+
+module.exports = {
+    getFundingRate
+};

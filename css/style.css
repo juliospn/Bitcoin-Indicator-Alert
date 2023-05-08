@@ -11,7 +11,7 @@ body {
     width: 100%;
     justify-content: space-between;
     width: 450px;
-    height: 275px;
+    height: 300px;
 }
 
 h1 {
@@ -25,6 +25,10 @@ h2 {
     font-size: 16px;
     margin-bottom: 10px;
     font-weight: 500;
+}
+
+#funding-rate {
+    margin-bottom: 13px;
 }
 
 .orange {
