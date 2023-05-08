@@ -3,3 +3,5 @@ codigos.txt
 firebase.txt
 functions/node_modules/
 extra-files/
+node_modules/axios
+api/
