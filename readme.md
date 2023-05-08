@@ -3,7 +3,7 @@
 #### Status: Developing ⚠️
 
 <div align="center">
-	<img width=600px src="./img/extension.gif">
+	<img width=600px src="./assets/extension.gif">
 </div><br>
 
 #### This is a browser extension that allows users to monitor some important Bitcoin indicators and receive alerts for overbought and oversold conditions.
