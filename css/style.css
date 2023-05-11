@@ -10,8 +10,8 @@ body {
     display: inline-flex;
     width: 100%;
     justify-content: space-between;
-    width: 450px;
-    height: 300px;
+    width: 480px;
+    height: 260px;
 }
 
 h1 {
@@ -25,6 +25,10 @@ h2 {
     font-size: 16px;
     margin-bottom: 10px;
     font-weight: 500;
+    color: white;
+    /* Define a cor do texto como branco */
+    text-decoration: none;
+    /* Remove o sublinhado */
 }
 
 #funding-rate {
@@ -58,6 +62,20 @@ h2 {
     margin-top: 20px;
 }
 
+.nupl a {
+    display: inline-block;
+    padding-right: 5px;
+    /* Ajuste o espaçamento à direita conforme necessário */
+    color: white;
+    /* Define a cor do texto como branco */
+    text-decoration: none;
+    /* Remove o sublinhado */
+}
+
+.nupl-inline {
+    display: inline-flex;
+}
+
 .set-alarm {
     display: flex;
     justify-content: flex-end;
@@ -85,7 +103,41 @@ div button {
 
 div button:hover {
     background-color: rgb(43, 43, 43);
-    
+    cursor: pointer;
+
+}
+
+.chart-global {
+    text-align: center;
+    margin-top: 33px;
+}
+
+.chart-global p {
+    top: -15px;
+    position: relative;
+    font-size: 13px;
+}
+
+.chart-title {
+    display: inline-flex;
+    margin-bottom: 5px;
+}
+
+#funding-rate-chart canvas {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    align-self: center;
+}
+
+.tool-tip {
+    margin-left: 3px;
+    max-width: 150px;
+}
+
+.tool-tip:hover {
+    cursor: help;
 }
 
 .buttons {
@@ -129,4 +181,37 @@ footer a:hover {
 
 .btcnews:hover {
     color: #d10000;
+}
+
+canvas {
+    padding-left: 20px;
+    padding-right: 10px;
+}
+
+.tool-tip {
+    position: relative;
+}
+
+.tool-tip::before {
+    content: attr(title);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 10px;
+    background-color: rgb(29, 29, 29);
+    color: white;
+    font-size: 12px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.2s ease;
+    width: 140px;
+    border-radius: 5px;
+    text-align: center;
+    pointer-events: none; /* adicionado */
+}
+
+.tool-tip:hover::before {
+    opacity: 1;
+    visibility: visible;
 }

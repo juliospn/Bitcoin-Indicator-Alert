@@ -12,8 +12,13 @@
     "alarms",
     "storage",
     "notifications",
-    "http://localhost:3000/"
+    "http://localhost:3000/",
+    "https://cdn.jsdelivr.net/npm/chart.js"
   ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'",
+    "script-src": ["https://cdn.jsdelivr.net/npm/chart.js"]
+  },  
   "action": {
     "default_icon": "icon128.png",
     "default_title": "BTC Indicators | Funding Rate & NUPL",

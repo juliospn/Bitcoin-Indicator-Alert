@@ -1,0 +1,88 @@
+/* Para telas menores que 600px de largura */
+@media screen and (max-width: 600px) {
+  body {
+    display: inline-flex;
+  }
+
+  .container {
+    width: 100%;
+    height: auto;
+    flex-direction: column;
+    flex-shrink: 0;
+  }
+
+  h1 {
+    font-size: 14px;
+    margin-top: 10px;
+    margin-bottom: 5px;
+  }
+
+  h2 {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+
+  #funding-rate {
+    margin-bottom: 10px;
+  }
+
+  .avg-price {
+    width: 100%;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  div button {
+    height: 20px;
+    margin-bottom: 3px;
+  }
+
+  footer {
+    font-size: 11.5px;
+    padding: 5px;
+  }
+}
+
+/* Para telas maiores que 600px de largura */
+@media screen and (min-width: 601px) {
+  .container {
+    width: 450px;
+    height: 300px;
+    flex-direction: row;
+  }
+
+  h1 {
+    font-size: 16px;
+    margin-top: 5px;
+    margin-bottom: 10px;
+  }
+
+  h2 {
+    font-size: 16px;
+    margin-bottom: 10px;
+  }
+
+  #funding-rate {
+    margin-bottom: 13px;
+  }
+
+  .avg-price {
+    width: 140px;
+    margin: 0 auto;
+    margin-top: 20px;
+    padding-top: 20px;
+    padding-right: 3px;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  div button {
+    height: 25px;
+    margin-bottom: 5px;
+  }
+
+  footer {
+    font-size: 12.5px;
+    padding: 8px;
+  }
+}

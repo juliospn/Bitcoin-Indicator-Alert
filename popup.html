@@ -15,24 +15,24 @@
       <h2 class="price">Bitcoin Price:</h2>
       <div id="price">Loading...</div>
       <div class="funding">
-        <h2>Binance Funding Rate:</h2>
-        <div id="funding-rate">Loading...</div>
         <h2>Global Funding Rate:</h2>
         <div id="global-funding-rate">Loading...</div>
       </div>
       <div class="nupl">
-        <h2>NUPL:</h2>
-        <div id="nupl-value">Loading...</div>
+        <a href="https://www.lookintobitcoin.com/charts/relative-unrealized-profit--loss/" target="_blank"><h2>NUPL:</h2></a>
+        <div class="nupl-inline">
+          <div id="nupl-value">Loading...</div><span class="tool-tip" title="This is a long-term indicator.">ⓘ</span>
+        </div>
       </div>
     </div>
     <div>
       <div class="buttons">
         <div class="set-alarm">
-          <button id="set-alarm-btn">Set Alarm</button>
-        </div>      
+          <button id="set-alarm-btn" target="_blank">Set Alarm</button>
+        </div>
         <div class="set-alarm">
           <button id="instructions-btn">Instructions</button>
-        </div>      
+        </div>
         <div>
           <button id="buy-history-btn">Purchase History</button>
         </div>
@@ -40,7 +40,17 @@
       <div>
         <div class="avg-price">
           <h2>My Average Price:</h2>
-          <p> $ <span id="last_avg_price">-</span></p>
+          <p> $ <span id="last_avg_price">-</span></p> <span class="tool-tip"
+            title="This is your average price. You can record your Bitcoin purchases in 'Purchase History'.">ⓘ</span>
+        </div>
+        <div class="chart-global">
+          <div class="chart-title">
+            <h3>Global Funding Rate </h3>
+            <span class="tool-tip" title="The Global Funding Rate is a short-term indicator. Focus on extreme values for long-term analysis of overbought and oversold regions.">ⓘ</span>
+
+          </div>
+          <canvas id="funding-rate-chart" width="250" height="70"></canvas>
+          <p>Last 7D</p>
         </div>
       </div>
     </div>
@@ -56,7 +66,9 @@
   <script src="./js/instructions.js"></script>
   <script src="./js/purchase-history.js"></script>
   <script src="./js/popup.js"></script>
-  <script src="./js/axios.min.js"></script>
+  <script src="./js/chart.min.js"></script>
+  <script src="./js/chart.js"></script>
+
 </body>
 
 </html>
