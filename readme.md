@@ -1,4 +1,4 @@
-<h1>Bitcoin Indicator Alert<h1>
+<h1 align="center">Bitcoin Indicator Alert - Browser Extension</h1>
 
 #### Status: Developing ⚠️
 
